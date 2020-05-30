@@ -4,6 +4,11 @@ const app = express();
 
 const PORT = 3000;
 
+//sets the default timeout for the application to 3s
+// app.use(function (req , res, next){
+    // setTimeout(next, 3000)
+// })
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, "public", 'index.html'));
 })

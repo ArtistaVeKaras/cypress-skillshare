@@ -2,6 +2,7 @@ describe("UI TESTS", () => {
     beforeEach(() => {
         cy.visit('http://localhost:3000')
     })
+
     it.skip("should navigate to google's website", () =>{
         cy.visit("https://www.google.com");
     })
@@ -31,6 +32,7 @@ describe("UI TESTS", () => {
         cy.get('[data-cy=submit-button]').click()
         cy.get('[data-cy=logout-btn]').should('be.visible')
         cy.get('[data-cy=logout-btn]').should('have.class', 'btn-sm')
+        cy.get('[data-cy=logout-btn]').should('not.have.class', 'btn-sm11')
     })
 
     it('should logout succefully', () => {
@@ -39,5 +41,10 @@ describe("UI TESTS", () => {
         cy.get('[data-cy=submit-button]').click()
         cy.get('[data-cy=logout-btn]').click()
         cy.get('[data-cy=logout-text]').should("contain",'You are now logged out')
+    })
+
+    it.only('should have existing elements', () => {
+        //looking for sign in button
+        cy.get('[data-cy=submit-buttn]').should('exist');
     })
 })
